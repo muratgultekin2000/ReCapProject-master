@@ -11,7 +11,7 @@ namespace Business.Constans
         public static string CarAdded = "Araba eklenmiştir.";
         public static string MaintenanceTime = "Bakım zamanı.";
         public static string DailyPriceZero = "Fiyat 0 olamaz.";
-        public static string CarsListted = "Fiyat 0 olamaz.";
+        public static string CarsListted = "Arabalar listelendi.";
         public static string CarsNotBeFound = "Fiyat 0 olamaz.";
         public static string CarUpdated="Araba güncellendi.";
         public static string BradNotBeFaund="Marka Bulunamadı";
