@@ -11,13 +11,21 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            var result = customerManager.GetCustomerDetails();
-            foreach (var item in result.Data)
+
+            CarsManager carsManager = new CarsManager(new EfCarDal());
+            var result1 = carsManager.GetAll();
+            foreach (var item in result1.Data)
             {
-                Console.WriteLine(item.firstname+item.lastname+item.email+item.companyname);
+                Console.WriteLine(item.Description);
             }
-           
+
+            //CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            //var result = customerManager.GetCustomerDetails();
+            //foreach (var item in result.Data)
+            //{
+            //    Console.WriteLine(item.firstname+item.lastname+item.email+item.companyname);
+            //}
+
             //RentalManager rentalManager = new RentalManager(new EfRentalDal());
             //var result = rentalManager.Add(new Rental { Id = 3, CarId = 2, CustomerId = 1, RentDate = new DateTime(2021, 2, 12), ReturnDate = new DateTime(2021, 3, 21) });
             //result = rentalManager.Add(new Rental { Id = 4, CarId = 3, CustomerId = 3, RentDate = new DateTime(2021, 3, 12), ReturnDate = new DateTime(2021, 3, 21) });
@@ -44,7 +52,7 @@ namespace ConsoleApp1
             //Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             //ekle();
             //Listele();
-           // Markalar();
+            // Markalar();
             //CarManager carManager = new CarManager(new EfCarDal());
             //foreach (var cars in carManager.GetCarDetails())
             //{

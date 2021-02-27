@@ -26,5 +26,11 @@ namespace Business.Constans
         internal static string UserListted="kullanıcılar listelendi";
         internal static string UserUpdated="kullanıcı güncellendi";
         internal static object CustomerListed="Müşteriler listelendi";
+        public static object ImageAdded="Resim Eklendi.";
+        public static string ImageDeleted="Resim silindi.";
+        internal static string ImageUpdated="Resim güncellendi.";
+        internal static string FiveNumberOfPictures="Bir arabaya 5 den fazla resim yüklenemez.";
+        internal static string CarImageNoAdd = "Resim bilgileri eklenemedi";
+        internal static string CarImageAdd="REsim bilgileri eklendi.";
     }
 }
