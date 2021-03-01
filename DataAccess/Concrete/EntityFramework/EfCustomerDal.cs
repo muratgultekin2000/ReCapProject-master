@@ -17,7 +17,7 @@ namespace DataAccess.Concrete.EntityFramework
             using (ArabalarContext context=new ArabalarContext())
             {
                 var result = from c in context.customers
-                             join u in context.users
+                             join u in context.Users
                              on c.UserId equals u.Id
                              select new CustomerDetailDto
                              {

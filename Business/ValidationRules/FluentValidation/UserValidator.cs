@@ -14,8 +14,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(u => u.FirstName.Length).LessThan(20).GreaterThan(2);
             RuleFor(u => u.LastName).NotEmpty();
             RuleFor(u => u.LastName.Length).LessThan(20).GreaterThan(2);
-            RuleFor(u => u.Password).NotEmpty();
-            RuleFor(u => u.Password.Length).GreaterThan(8);
             RuleFor(u => u.Email).NotEmpty();
             RuleFor(u => u.Email).Must(ContainMail);
         }

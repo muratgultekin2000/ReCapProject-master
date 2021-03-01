@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constans
@@ -32,5 +33,12 @@ namespace Business.Constans
         internal static string FiveNumberOfPictures="Bir arabaya 5 den fazla resim yüklenemez.";
         internal static string CarImageNoAdd = "Resim bilgileri eklenemedi";
         internal static string CarImageAdd="REsim bilgileri eklendi.";
+        public static string AuthorizationDenied = "yetkin yok";
+        internal static string UserRegistered="kayıt yapıldı";
+        internal static string PasswordError = "Parola hatalı.";
+        internal static string UserNotFound = "Kullanıcı bulunamadı";
+        internal static string SuccessfulLogin = "Başarılı giriş";
+        internal static string UserAlreadyExists = "bu kullanıcı var.";
+        internal static string AccessTokenCreated="token oluşturuldu.";
     }
 }
