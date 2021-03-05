@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.DTOs;
@@ -32,7 +33,7 @@ namespace Business.Concrete
             }
             
         }
-
+        [CacheRemoveAspect("IRentalService.Get)")]
         public IResult Delete(Rental rental)
         {
             if (false)
@@ -47,7 +48,7 @@ namespace Business.Concrete
             }
             
         }
-
+        [CacheRemoveAspect("IRentalService.Get)")]
         public IResult Update(Rental rental)
         {
             if (false)
@@ -62,7 +63,7 @@ namespace Business.Concrete
             }
             
         }
-
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {
             if (DateTime.Now.Hour==22)
@@ -71,7 +72,7 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.CarsListted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Rental>> GetByRentDate(DateTime minDate, DateTime maxDate)
         {
             if (_rentalDal.GetAll(p => p.RentDate>=minDate && p.RentDate<=maxDate).Count==0)

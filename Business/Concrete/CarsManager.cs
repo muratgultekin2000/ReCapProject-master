@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
@@ -44,7 +45,7 @@ namespace Business.Concrete
             }
             
         }
-
+        [CacheRemoveAspect("ICarService.Get)")]
         public IResult Update(Car car)
         {
             if (false)
@@ -59,6 +60,7 @@ namespace Business.Concrete
             
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour==2)
@@ -67,7 +69,7 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Car>> GetAllByBrandId(int id)
         {
             if (_carDal.GetAll(p => p.BrandId == id).Count==0)

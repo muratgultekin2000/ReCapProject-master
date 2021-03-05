@@ -21,6 +21,8 @@ using Core.Utilities.Security.Encryption;
 using Core.Utilities.IoC;
 using Autofac.Core;
 using Microsoft.AspNetCore.Http;
+using Core.Extensions;
+using Core.DependencyResolvers;
 
 namespace WebAPI
 {
@@ -44,6 +46,8 @@ namespace WebAPI
             //services.AddSingleton<ICustomerService, CustomerManager>();
             //services.AddSingleton<ICustomerDal, EfCustomerDal>();
             
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -60,8 +64,8 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            ServiceTool.Create(services);
+
+            services.AddDependencyResolvers(new ICoreModule[] { new CoreModule()});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
