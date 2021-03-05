@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.DTOs;
@@ -48,6 +49,8 @@ namespace Business.Concrete
             }
             
         }
+
+        [TransactionScopeAspect]
         [CacheRemoveAspect("IRentalService.Get)")]
         public IResult Update(Rental rental)
         {
@@ -63,6 +66,8 @@ namespace Business.Concrete
             }
             
         }
+
+        [PerformanceAspect(8)]
         [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {

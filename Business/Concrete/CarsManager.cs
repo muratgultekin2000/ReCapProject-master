@@ -3,6 +3,8 @@ using Business.BusinessAspects.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
@@ -45,6 +47,9 @@ namespace Business.Concrete
             }
             
         }
+
+
+        [TransactionScopeAspect]
         [CacheRemoveAspect("ICarService.Get)")]
         public IResult Update(Car car)
         {
@@ -60,6 +65,7 @@ namespace Business.Concrete
             
         }
 
+        [PerformanceAspect(8)]
         [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
@@ -93,7 +99,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarsListted);
         }
-
         
+       
     }
 }
